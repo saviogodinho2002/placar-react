@@ -1,12 +1,14 @@
-body {
+*{
     margin: 0;
     padding: 0;
+
+    text-align: center;
 }
 .placar-container{
     display: inline-block;
     text-align: center;
-    width: 230px;
-    height: 210px;
+    width: 40vw;
+    height: 40vh;
   
     border-radius: 10px;
     border: 1px solid black;
@@ -14,11 +16,19 @@ body {
     margin: 20px;
   }
   .placar-name{
-    font-size: 30px;
+    font-size: 4vw;
+    margin-top: 1vh;
   
   }
   .placar-points{
-    font-size: 30px;
+    font-size: 3vw;
+    margin-top: 5vh;
+  }
+  .placar-button{
+    width: 8vw;
+    height: 5vh;
+    font-size: 2vw;
+    margin-top: 5vh;
   }
   .add{
       margin-left: 20px;

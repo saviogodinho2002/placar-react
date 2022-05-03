@@ -29,6 +29,9 @@ export function Placar(props: PlacarProps) {
         props.listPlacares[state.thisindex] = state;
 
         props.updateState([...props.listPlacares]);
+
+        console.log(props.listPlacares);
+
     }
     function subPoints() {
         setState(
@@ -42,6 +45,7 @@ export function Placar(props: PlacarProps) {
 
         props.updateState([...props.listPlacares]);
     }
+    
     function changeName() {
         let temp = window.prompt("Novo nome: ") as string;
 
@@ -50,10 +54,13 @@ export function Placar(props: PlacarProps) {
                 thisindex: state.thisindex,
                 thisname: (temp == "" || temp == null) ? state.thisname : temp,
                 thispoints: state.thispoints
-            })
+            });
+
         props.listPlacares[state.thisindex] = state;
 
         props.updateState([...props.listPlacares]);
+
+        console.log(props.listPlacares);
 
     }
     return (

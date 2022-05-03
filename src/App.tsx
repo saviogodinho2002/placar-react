@@ -13,8 +13,7 @@ interface Iplacar{
 function App() {
 
   const [listPlacares,setPlacar] = useState<Iplacar[]>([]);
-  console.log(listPlacares);
-
+  
   
   function addPlacar(){
 
@@ -41,7 +40,7 @@ function App() {
 
       }
       <br/>
-      <button id="create-placar-button" onClick={addPlacar}> Novo placar </button>
+      <button id="create-placar-button" className='placar-button' onClick={addPlacar}> + </button>
 
     </div>
   )
