@@ -13,10 +13,10 @@ interface Iplacar{
 function App() {
 
   const [listPlacares,setPlacar] = useState<Iplacar[]>([]);
+  console.log(listPlacares);
 
   
   function addPlacar(){
-    
 
     setPlacar([...listPlacares,{
       thisindex: listPlacares.length as number,
@@ -34,7 +34,7 @@ function App() {
           return (
           <>
           
-          <Placar key={placar.thisindex} placar={placar} listPlacares={listPlacares} />
+          <Placar key={placar.thisindex} placar={placar} updateState={setPlacar} listPlacares={listPlacares} />
           </>
           )
         })

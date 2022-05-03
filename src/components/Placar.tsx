@@ -8,8 +8,9 @@ interface Iplacar {
 }
 
 type PlacarProps = {
-    placar: Iplacar;
-    listPlacares: Iplacar[]
+    placar: Iplacar,
+    listPlacares: Iplacar[],
+    updateState: React.Dispatch<React.SetStateAction<Iplacar[]>>
 }
 
 
@@ -17,18 +18,17 @@ export function Placar(props: PlacarProps) {
 
 
     const [state, setState] = useState<Iplacar>(props.placar);
-    const [listPlacares, setPlacar] = useState<Iplacar[]>(props.listPlacares);
+
 
     function addPoints() {
         setState(
             {
-                thisindex: state.thisindex,
-                thisname: state.thisname,
+                ...state,
                 thispoints: state.thispoints + 1
             })
+        props.listPlacares[state.thisindex] = state;
 
-
-
+        props.updateState([...props.listPlacares]);
     }
     function subPoints() {
         setState(
@@ -38,6 +38,9 @@ export function Placar(props: PlacarProps) {
                 thispoints: state.thispoints - 1
             })
 
+        props.listPlacares[state.thisindex] = state;
+
+        props.updateState([...props.listPlacares]);
     }
     function changeName() {
         let temp = window.prompt("Novo nome: ") as string;
@@ -45,9 +48,12 @@ export function Placar(props: PlacarProps) {
         setState(
             {
                 thisindex: state.thisindex,
-                thisname: temp == "" ? state.thisname : temp,
+                thisname: (temp == "" || temp == null) ? state.thisname : temp,
                 thispoints: state.thispoints
             })
+        props.listPlacares[state.thisindex] = state;
+
+        props.updateState([...props.listPlacares]);
 
     }
     return (
@@ -57,8 +63,9 @@ export function Placar(props: PlacarProps) {
             <div className="placar-points-container">
                 <p className="placar-points">  {state.thispoints} </p>
             </div>
-            <button className="placar-addbutton" onClick={addPoints}>add</button>
-            <button className="placar-addbutton" onClick={subPoints}>sub</button>
+
+            <button className="placar-button sub" onClick={subPoints}> -1 </button>
+            <button className="placar-button add" onClick={addPoints}>+1</button>
         </div>
     );
 

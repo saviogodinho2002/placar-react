@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.placar-container{
+    display: inline-block;
+    text-align: center;
+    width: 230px;
+    height: 210px;
+  
+    border-radius: 10px;
+    border: 1px solid black;
+  
+    margin: 20px;
+  }
+  .placar-name{
+    font-size: 30px;
+  
+  }
+  .placar-points{
+    font-size: 30px;
+  }
+  .add{
+      margin-left: 20px;
+  }
