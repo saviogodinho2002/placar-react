@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import App from "../App";
+import { StatesContext } from "../context/EstadosPlacar";
 
 interface Iplacar {
     thisindex: number
@@ -9,66 +10,55 @@ interface Iplacar {
 
 type PlacarProps = {
     placar: Iplacar,
-    listPlacares: Iplacar[],
-    updateState: React.Dispatch<React.SetStateAction<Iplacar[]>>
+    
 }
 
 
-export function Placar(props: PlacarProps) {
+export function Placar({ placar }: PlacarProps) {
 
 
-    const [state, setState] = useState<Iplacar>(props.placar);
+   
+    const { listPlacares,setPlacares } = useContext(StatesContext);
+
 
 
     function addPoints() {
-        setState(
-            {
-                ...state,
-                thispoints: state.thispoints + 1
-            })
-        props.listPlacares[state.thisindex] = state;
+        placar = {
+            ...placar,
+            thispoints: placar.thispoints+1
+        }
+        listPlacares[placar.thisindex] = placar;
 
-        props.updateState([...props.listPlacares]);
-
-        console.log(props.listPlacares);
+        setPlacares([...listPlacares]);
 
     }
     function subPoints() {
-        setState(
-            {
-                thisindex: state.thisindex,
-                thisname: state.thisname,
-                thispoints: state.thispoints - 1
-            })
+        placar = {
+            ...placar,
+            thispoints: placar.thispoints -1
+        }
+        listPlacares[placar.thisindex] = placar;
 
-        props.listPlacares[state.thisindex] = state;
-
-        props.updateState([...props.listPlacares]);
-    }
+        setPlacares([...listPlacares]);
     
+    }
+
     function changeName() {
-        let temp = window.prompt("Novo nome: ") as string;
-
-        setState(
-            {
-                thisindex: state.thisindex,
-                thisname: (temp == "" || temp == null) ? state.thisname : temp,
-                thispoints: state.thispoints
-            });
-
-        props.listPlacares[state.thisindex] = state;
-
-        props.updateState([...props.listPlacares]);
-
-        console.log(props.listPlacares);
-
+         let temp = window.prompt("Novo nome: ") as string;
+        placar = {
+            ...placar,
+            thisname: (temp == null || temp == "")? placar.thisname: temp
+        }
+        listPlacares[placar.thisindex] = placar;
+        setPlacares([...listPlacares]);
+        
     }
     return (
         <div className="placar-container">
-            <p className="placar-name" onClick={changeName}> {state.thisname} </p>
+            <p className="placar-name" onClick={changeName}> {placar.thisname} </p>
 
             <div className="placar-points-container">
-                <p className="placar-points">  {state.thispoints} </p>
+                <p className="placar-points">  {placar.thispoints} </p>
             </div>
 
             <button className="placar-button sub" onClick={subPoints}> -1 </button>
