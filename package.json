@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "js-file-download": "^0.4.12",
+    "json-to-csv": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-file-download": "^0.3.5",

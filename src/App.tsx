@@ -6,24 +6,14 @@ import { Placar } from './components/Placar';
 
 import { StatesContext } from "./context/EstadosPlacar"
 
-
-
-
 interface Iplacar {
   thisindex: number
   thisname: string,
   thispoints: number
 }
-
-
-
 function App() {
 
-
-
   const { listPlacares, setPlacares } = useContext(StatesContext);
-
-
 
   function addPlacar() {
 
@@ -39,29 +29,13 @@ function App() {
     fileDownload(JSON.stringify(listPlacares), "myPlacar.json");
   }
 
-  function loadJson() {
-    const input = document.getElementById("input-json");
-    const reader = new FileReader
-
-
-
-  }
-
   return (
-
-
-
     <div className="aplication container">
 
       {
         listPlacares.map((placar) => {
-
-
           return (
-
-
             <Placar key={placar.thisindex} placar={placar} />
-
           )
         })
 
@@ -73,10 +47,10 @@ function App() {
 
       <input id='input-json' type="file" accept='.json' onChange={(e)=>{ 
         
-        const file = e.target.files[0];
+        const file = e.target.files[0] ;
 
         if(file == null) return;
-        
+
         const reader = new FileReader();
 
         reader.onload = function(event){
