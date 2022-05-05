@@ -42,7 +42,7 @@ function App() {
       <br />
       <button id="create-placar-button" className='placar-button' onClick={addPlacar}> + </button>
       <button id="download-json-button" className='placar-button' onClick={gerateJson}> v </button>
-
+      <br/>
       <input id='input-json' type="file" value={""} accept='.json' onChange={
         (e?) => {
 
