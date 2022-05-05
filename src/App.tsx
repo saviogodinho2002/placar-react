@@ -35,7 +35,7 @@ function App() {
       {
         listPlacares.map((placar) => {
           return (
-            <Placar key={placar.thisindex} placar={placar} />
+            <Placar key={ Math.floor(Math.random()*3) } placar={placar} />
           )
         })
       }

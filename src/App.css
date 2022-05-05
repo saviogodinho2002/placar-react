@@ -18,6 +18,7 @@
   .placar-name{
     font-size: 4vw;
     margin-top: 1vh;
+    display: inline-block;
   
   }
   .placar-points{
@@ -33,4 +34,6 @@
   .add{
       margin-left: 20px;
   }
-  
+  .delet-placar-button{
+   float: right;
+  }

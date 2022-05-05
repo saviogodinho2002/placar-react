@@ -53,10 +53,16 @@ export function Placar({ placar }: PlacarProps) {
         setPlacares([...listPlacares]);
         
     }
+    function deletPlacar(){
+        const index = listPlacares.indexOf(placar);
+        console.log(index);
+        listPlacares.splice(index,1);
+        setPlacares([...listPlacares]);
+    }
     return (
         <div className="placar-container">
             <p className="placar-name" onClick={changeName}> {placar.thisname} </p>
-
+            <button className="delet-placar-button"  onClick={deletPlacar}>X</button>
             <div className="placar-points-container">
                 <p className="placar-points">  {placar.thispoints} </p>
             </div>
