@@ -57,9 +57,6 @@ function App() {
          setPlacares( JSON.parse(event.target?.result))
         }
         reader.readAsText(file);
-        //console.log(e.target.files[0])
-        
-        
         }} />
 
     </div>
