@@ -5,9 +5,12 @@ import { PlacaresStatesProvider } from './context/EstadosPlacar'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <PlacaresStatesProvider>
+  
   <React.StrictMode>
+    <PlacaresStatesProvider>
     <App />
+    </PlacaresStatesProvider>
+    
   </React.StrictMode>
-  </PlacaresStatesProvider>
+ 
 )
