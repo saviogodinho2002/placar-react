@@ -23,21 +23,23 @@ export function Placar({ placar }: PlacarProps) {
 
 
     function addPoints() {
+        let index = listPlacares.indexOf(placar);
         placar = {
             ...placar,
             thispoints: placar.thispoints+1
         }
-        listPlacares[placar.thisindex] = placar;
+        listPlacares[index] = placar;
 
         setPlacares([...listPlacares]);
 
     }
     function subPoints() {
+        let index = listPlacares.indexOf(placar);
         placar = {
             ...placar,
             thispoints: placar.thispoints -1
         }
-        listPlacares[placar.thisindex] = placar;
+        listPlacares[index] = placar;
 
         setPlacares([...listPlacares]);
     
