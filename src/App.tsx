@@ -15,6 +15,8 @@ function App() {
 
   const { listPlacares, setPlacares } = useContext(StatesContext);
 
+  console.log(listPlacares);
+
   function addPlacar() {
 
     setPlacares([...listPlacares, {
@@ -35,7 +37,7 @@ function App() {
       {
         listPlacares.map((placar) => {
           return (
-            <Placar key={ Math.floor(Math.random()*3) } placar={placar} />
+            <Placar key={ listPlacares.indexOf(placar) } placar={placar} />
           )
         })
       }

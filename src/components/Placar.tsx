@@ -56,8 +56,11 @@ export function Placar({ placar }: PlacarProps) {
     function deletPlacar(){
         const index = listPlacares.indexOf(placar);
         console.log(index);
-        listPlacares.splice(index,1);
-        setPlacares([...listPlacares]);
+        let templist = [...listPlacares];
+        templist.splice(index,1);
+        setPlacares([...templist]);
+        
+
     }
     return (
         <div className="placar-container">
