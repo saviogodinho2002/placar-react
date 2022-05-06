@@ -47,11 +47,13 @@ export function Placar({ placar }: PlacarProps) {
 
     function changeName() {
          let temp = window.prompt("Novo nome: ") as string;
+        let index = listPlacares.indexOf(placar);
+
         placar = {
             ...placar,
             thisname: (temp == null || temp == "")? placar.thisname: temp
         }
-        listPlacares[placar.thisindex] = placar;
+        listPlacares[index] = placar;
         setPlacares([...listPlacares]);
         
     }
