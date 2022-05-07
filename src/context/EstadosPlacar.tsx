@@ -2,7 +2,6 @@ import  { createContext, ReactNode, useState } from "react";
 
 interface Iplacar {
         
-    thisindex: number
     thisname: string,
     thispoints: number
 
@@ -14,7 +13,7 @@ type PlacaresContextType= {
     setPlacares: (newState:Iplacar[])=> void;
 }
 const initValue ={
-    listPlacares: [...[{thisindex: 0,thisname:"undefined",thispoints:0}]],
+    listPlacares: [...[{thisname:"undefined",thispoints:0}]],
     setPlacares:()=>{
         
     },

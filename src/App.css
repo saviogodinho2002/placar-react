@@ -37,3 +37,21 @@
   .delet-placar-button{
    float: right;
   }
+  .color-button{
+    float: left;
+  }
+  #input-json{
+    display: none;
+    
+  }
+  #label-input{
+    display: inline-block;
+    width: 8vw;
+    height: 5vh;
+    background-color: rgb(233, 233, 233);
+   
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 1.5vw;
+    margin-top: 10px;
+  }

@@ -7,7 +7,6 @@ import { Placar } from './components/Placar';
 import { StatesContext } from "./context/EstadosPlacar"
 
 interface Iplacar {
-  thisindex: number
   thisname: string,
   thispoints: number
 }
@@ -20,7 +19,6 @@ function App() {
   function addPlacar() {
 
     setPlacares([...listPlacares, {
-      thisindex: listPlacares.length as number,
       thisname: ("undefined" + listPlacares.length) as string,
       thispoints: 0 as number
     }])
@@ -37,31 +35,34 @@ function App() {
       {
         listPlacares.map((placar) => {
           return (
-            <Placar key={ listPlacares.indexOf(placar) } placar={placar} />
+            <Placar key={listPlacares.indexOf(placar)} placar={placar} />
           )
         })
       }
-      <br />
-      <button id="create-placar-button" className='placar-button' onClick={addPlacar}> + </button>
-      <button id="download-json-button" className='placar-button' onClick={gerateJson}> v </button>
-      <br/>
-      <input id='input-json' type="file" value={""} accept='.json' onChange={
-        (e?) => {
+      <div>
+        <button id="create-placar-button" className='placar-button' onClick={addPlacar}> + </button>
+        <button id="download-json-button" className='placar-button' onClick={gerateJson}> v </button>
+      </div>
+      <div>
+        <label htmlFor="input-json" id="label-input"> upload </label>
+        <input id='input-json' type="file" value={""} accept='.json' onChange={
+          (e?) => {
 
-          if (e.target.files == null) return;
+            if (e.target.files == null) return;
 
-          let file = e.target.files[0];
+            let file = e.target.files[0];
 
-          const reader = new FileReader();
+            const reader = new FileReader();
 
-          reader.onload = function (event) {
+            reader.onload = function (event) {
 
-            setPlacares(JSON.parse(event.target?.result as string))
+              setPlacares(JSON.parse(event.target?.result as string))
 
-          }
-          reader.readAsText(file);
-        }} />
-
+            }
+            reader.readAsText(file);
+          }}
+        />
+      </div>
     </div>
 
   )
