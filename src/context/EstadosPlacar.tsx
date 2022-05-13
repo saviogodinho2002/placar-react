@@ -1,19 +1,19 @@
 import  { createContext, ReactNode, useState } from "react";
 
-interface Iplacar {
-        
+export interface Iplacar {
+    id?: string;
     thisname: string,
     thispoints: number
 
 }
 
-type PlacaresContextType= {
+export type PlacaresContextType= {
     
     listPlacares:Iplacar[];
-    setPlacares: (newState:Iplacar[])=> void;
+    setPlacares: (newState:any)=> void;
 }
 const initValue ={
-    listPlacares: [...[{thisname:"undefined",thispoints:0}]],
+    listPlacares: [{id:'0',thisname:"undefined",thispoints:0 }],
     setPlacares:()=>{
         
     },

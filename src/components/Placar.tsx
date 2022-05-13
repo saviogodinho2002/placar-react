@@ -1,11 +1,8 @@
 import { useState,useContext } from "react";
 import App from "../App";
-import { StatesContext } from "../context/EstadosPlacar";
+import { Iplacar, StatesContext } from "../context/EstadosPlacar";
 
-interface Iplacar {
-    thisname: string,
-    thispoints: number
-}
+
 
 type PlacarProps = {
     placar: Iplacar,
@@ -18,6 +15,7 @@ export function Placar({ placar }: PlacarProps) {
     const { listPlacares,setPlacares } = useContext(StatesContext);
 
     function addPoints() {
+    
         let index = listPlacares.indexOf(placar);
         placar = {
             ...placar,
@@ -26,7 +24,7 @@ export function Placar({ placar }: PlacarProps) {
         listPlacares[index] = placar;
 
         setPlacares([...listPlacares]);
-
+        
     }
     function subPoints() {
         let index = listPlacares.indexOf(placar);
@@ -56,23 +54,46 @@ export function Placar({ placar }: PlacarProps) {
         const index = listPlacares.indexOf(placar);    
         listPlacares.splice(index,1);
         setPlacares([...listPlacares]);
-        
     }
     function changeColorBackground(){
         //TODO: boa sorte alexandre :)
     }
+    function insertPoints(){
+        let temp = window.prompt("Novo valor: ");
+        let index = listPlacares.indexOf(placar);
+
+        let newPlacar = {
+            ...placar,
+            thispoints: (temp == null || temp == ""||isNaN(parseInt(temp)))?
+             placar.thispoints: 
+                parseInt(temp)
+        }
+        listPlacares[index] = newPlacar;
+        setPlacares([...listPlacares]);
+        
+
+    }
     return (
         <div className="placar-container" >
-            <p className="placar-name" onClick={changeName}> {placar.thisname} </p>
             <button className="delet-placar-button"  onClick={deletPlacar}>X</button>
-            <div className="placar-points-container">
-                <p className="placar-points">  {placar.thispoints} </p>
+            <button className="color-button" onClick={changeColorBackground}><i></i> cor</button>
+            <div className="placar-container-container">
+                <p className="placar-name" onDoubleClick={changeName}> {placar.thisname} </p>
+                
+                <div className="placar-points-container" onDoubleClick={insertPoints}>
+                   
+                    <p className="placar-points placar-points-left">
+                            {Math.floor(Math.abs(placar.thispoints)/10)} 
+                    </p>
+                    <p className="placar-points placar-point-right">  {Math.abs(placar.thispoints%10)} </p>
+                </div>
             </div>
+                <div className="buttons-addsub">
+                    <button className="placar-button placar-button-sub d-block" onClick={subPoints}> - </button>
+                    <button className="placar-button placar-button-add d-block" onClick={addPoints}>+</button>
+                </div> 
 
-            <button className="color-button" onClick={changeColorBackground}> cor</button>
-            <button className="placar-button sub" onClick={subPoints}> -1 </button>
-            <button className="placar-button add" onClick={addPoints}>+1</button>
-        </div>
+                </div>
     );
 
 }

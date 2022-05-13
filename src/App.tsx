@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import fileDownload from 'js-file-download';
-
+import { uniqueId } from 'lodash'
 import './App.css'
 import { Placar } from './components/Placar';
 
@@ -19,10 +19,11 @@ function App() {
   function addPlacar() {
 
     setPlacares([...listPlacares, {
+      id: uniqueId(),
       thisname: ("undefined" + listPlacares.length) as string,
-      thispoints: 0 as number
+      thispoints: 0 as number,
     }])
-
+    
 
   }
   function gerateJson() {
