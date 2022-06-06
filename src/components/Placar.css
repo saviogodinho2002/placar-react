@@ -1,0 +1,94 @@
+
+.placar-container{
+    display: inline-block;
+    text-align: center;
+    min-width: 40vw;
+    min-height: 40vh;
+    background-color: #070000;
+    border-radius: 25px;
+    margin: 20px;
+
+  }
+  .placar-container-container{
+    /*position: relative; */
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 35vw;
+    min-height: 30vh;
+    max-height: 60vh;
+    background-color: #3f0c1a;
+    border-radius: 25px 25px 0px 0px;
+    
+  }
+  .placar-name{
+    font-family: arcade;
+    font-size: 20pt;
+    margin-top: 1vh;
+    display: inline-block;
+    background-color: #070000;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    width: 45vh;
+    color:#a69eb0;
+  }
+  p{
+    display: inline-block;
+  }
+  .placar-points-container{
+    text-align: center;
+  }
+  .placar-points{
+    background-color: #070000;
+    color: #a69eb0;
+    font-size: 100pt;
+    font-family: Digital;
+    height: 120px;
+    width: 110px;
+    margin-bottom: 10px;
+  }
+  .placar-points-left{
+    margin-right: 20px;
+  }
+  .placar-point-right{
+    margin-left: 20px;
+  }
+  .placar-button{
+    width: 8vw;
+    height: 5vh;
+    font-size: 2vw;
+    margin-top: 2vh;
+    border: none;
+  }
+  .buttons-addsub{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+  }
+  .placar-button-add{
+    font-size: 4vh;
+    border-radius: 0px 10px 10px 0px;
+    width: 25vh;
+    color: #070000;
+  }  
+  .placar-button-sub{
+    font-size: 4vh;
+    border-radius: 10px 0px 0px 10px;
+    width: 25vh;
+    color: #070000;
+  }
+  .d-block {
+    display: block;
+  }
+  .delet-placar-button{
+   float: right;
+   background-color: #070000;
+   color: #292222;
+   margin-right: 10px;
+   margin-top: 8px;
+  }
+  .delet-placar-button:hover{
+    color: #6D6666;
+    cursor: pointer;
+  }

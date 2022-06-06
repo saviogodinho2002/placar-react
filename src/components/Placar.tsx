@@ -30,7 +30,7 @@ export function Placar({ placar }: PlacarProps) {
         let index = listPlacares.indexOf(placar);
         placar = {
             ...placar,
-            thispoints: placar.thispoints -1
+            thispoints: placar.thispoints > 0? placar.thispoints -1: placar.thispoints
         }
         listPlacares[index] = placar;
 

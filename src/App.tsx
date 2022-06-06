@@ -16,6 +16,7 @@ function App() {
 
   console.log(listPlacares);
 
+  
   function addPlacar() {
 
     setPlacares([...listPlacares, {
@@ -23,6 +24,7 @@ function App() {
       thisname: ("undefined" + listPlacares.length) as string,
       thispoints: 0 as number,
     }])
+
     
 
   }
@@ -34,9 +36,11 @@ function App() {
     <div className="aplication container">
 
       {
+
         listPlacares.map((placar) => {
           return (
             <Placar key={listPlacares.indexOf(placar)} placar={placar} />
+
           )
         })
       }
