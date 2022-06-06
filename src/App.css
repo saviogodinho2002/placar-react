@@ -130,3 +130,20 @@
     font-size: 1.5vw;
     margin-top: 10px;
   }
+
+  MochilaBottomUp(n, v, w, W){
+    Seja M[0..n][0..W] uma matriz
+    para X = 0 até W faça
+      M[0][X] = 0
+    para  j = 0 até n faça
+      M[j][0] = 0
+    para j = 1 até n faça
+      Para X = 0 até W faça
+        se wj > X então
+          M[j][X] = M[j-1][X]
+        senão
+          usa = vj + M[j-1][X-wj]
+          naousa = M[j-1][X]
+            M[j][X]
+  Retorna M[n][W]
+  }
