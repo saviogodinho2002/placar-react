@@ -26,6 +26,9 @@
     display: none;
     
   }
+  p{
+    display: inline-block;
+  }
   #label-input{
     display: inline-block;
     width: 8vw;

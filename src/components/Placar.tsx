@@ -2,7 +2,7 @@ import { useState,useContext } from "react";
 import App from "../App";
 import { Iplacar, StatesContext } from "../context/EstadosPlacar";
 
-
+import "./Placar.css"
 
 type PlacarProps = {
     placar: Iplacar,
@@ -74,6 +74,7 @@ export function Placar({ placar }: PlacarProps) {
 
     }
     return (
+        
         <div className="placar-container" >
             <button className="delet-placar-button"  onClick={deletPlacar}>X</button>
             <button className="color-button" onClick={changeColorBackground}><i></i> cor</button>
